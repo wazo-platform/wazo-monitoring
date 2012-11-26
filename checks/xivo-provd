@@ -1,0 +1,4 @@
+check process xivo-provd with pidfile /var/run/provd.pid
+	group telephony
+	start program = "/etc/init.d/xivo-provd start"
+	stop program = "/etc/init.d/xivo-provd stop"
