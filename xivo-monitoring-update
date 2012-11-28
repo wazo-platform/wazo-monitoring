@@ -9,7 +9,7 @@ activate_check()
 {
   local check=$1
 
-  if [ ! -L $MONIT_CONF_DIR/$check ]; then
+  if [ -e $MONIT_CONF_DIR/$check ] && [ ! -L $MONIT_CONF_DIR/$check ]; then
     rm $MONIT_CONF_DIR/$check
   fi
 
