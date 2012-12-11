@@ -2,8 +2,4 @@ check process xivo-agent with pidfile /var/run/xivo-agentd.pid
 	group telephony
 	start program = "/etc/init.d/xivo-agent start"
 	stop program = "/etc/init.d/xivo-agent stop"
-	if failed host 127.0.0.1 port 6741 use type udp
-		send '{"name": "ping", "cmd": null}'
-		timeout 10 seconds
-		then restart
 	if 5 restarts within 5 cycles then timeout
