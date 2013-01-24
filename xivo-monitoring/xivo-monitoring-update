@@ -2,7 +2,7 @@
 
 . /usr/sbin/pf-common-read-config
 
-MONIT_CHECKS=/usr/share/pf-xivo-monitoring/checks
+MONIT_CHECKS=/usr/share/xivo-monitoring/checks
 MONIT_CONF_DIR=/etc/monit/conf.d
 
 activate_check()
