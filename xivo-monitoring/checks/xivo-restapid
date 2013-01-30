@@ -1,9 +1,5 @@
 check process xivo-restapid with pidfile /var/run/xivo-restapid.pid
-        group telephony
-        start program = "/etc/init.d/xivo-restapid start"
-        stop program = "/etc/init.d/xivo-restapid stop"
-        if failed host 127.0.0.1 port 50050 use type tcp
-                timeout 10 seconds
-                then restart
-        if 5 restarts within 5 cycles then timeout
-
+	group telephony
+	start program = "/etc/init.d/xivo-restapi start"
+	stop program = "/etc/init.d/xivo-restapi stop"
+	if 5 restarts within 5 cycles then timeout
