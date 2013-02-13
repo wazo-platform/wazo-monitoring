@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /usr/sbin/pf-common-read-config
+. /usr/sbin/xivo-read-config
 
 MONIT_CHECKS=/usr/share/xivo-monitoring/checks
 MONIT_CONF_DIR=/etc/monit/conf.d
