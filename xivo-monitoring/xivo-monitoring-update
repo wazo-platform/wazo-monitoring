@@ -25,7 +25,7 @@ activate_check()
 for check in $MONIT_CHECKS/*; do
     service=$(basename $check)
     if [ "$service" != "isc-dhcp-server" ]; then
-        # isc-dhcp will be updated by sysconfd
+        # isc-dhcp will be updated by xivo-sysconfd
         activate_check $service
     fi
 done
