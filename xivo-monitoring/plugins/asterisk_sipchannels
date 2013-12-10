@@ -134,8 +134,8 @@ $pop->print("");
 #Peer             User/ANR         Call ID          Format           Hold     Last Message    Expiry     Peer
 #0 active SIP dialogs
 # -- OR --
-#10.34.1.27       5ux133           86b251ba24982c8  0x4 (ulaw)       No       Rx: ACK                    5ux133
-#10.34.1.35       wf6j7o           57d77675621255c  0x4 (ulaw)       No       Tx: ACK                    wf6j7o
+#10.42.0.121      3emz3n           37c8334b08fcf7b  (ulaw)           No       Rx: ACK                    3emz3n
+#10.42.0.115      au2v7i           4509933f5516657  (ulaw)           No       Tx: ACK                    au2v7i
 #2 active SIP dialogs
 #--END COMMAND--
 
@@ -152,13 +152,15 @@ while (($line = $pop->getline) and ($line !~ /active SIP/o))
     $i = 0;
     if ($start) {
         my @fields = (split ' ', $line);
-        if ($fields[3] eq '0x0') {
+        my $chan_codec = $fields[3];
+        $chan_codec =~ s/\(|\)//g;
+        if ($chan_codec eq 'nothing') {
             $unknown += 1;
             next;
         }
         my $found = 0;
-        foreach my $codec (@CODECSX) {
-            if ($fields[3] eq "$codec") {
+        foreach my $codec (@CODECS) {
+            if ($chan_codec eq "$codec") {
                 $results[$i] = $results[$i] + 1;
                 $found = 1;
                 last;
@@ -167,7 +169,7 @@ while (($line = $pop->getline) and ($line !~ /active SIP/o))
         }
         if (! $found) {
             $other += 1;
-            print STDERR "SIP other format: $fields[3]\n";
+            print STDERR "SIP other format: $chan_codec\n";
         }
     }
     $start = 1 if ($line =~ /Peer/o);
