@@ -1,0 +1,5 @@
+check process xivo-ami with pidfile /var/run/xivo-amid.pid
+	group telephony
+	start program = "/etc/init.d/xivo-amid start"
+	stop program = "/etc/init.d/xivo-amid stop"
+	if 5 restarts within 5 cycles then timeout
