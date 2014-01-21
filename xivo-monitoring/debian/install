@@ -1,0 +1,5 @@
+checks usr/share/xivo-monitoring/
+plugins/* usr/share/munin/plugins/
+xivo-monitoring-update usr/sbin/
+xivo-monitoring-update-graphics usr/sbin/
+etc/* etc/

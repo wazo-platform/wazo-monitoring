@@ -1,0 +1,185 @@
+xivo-monitoring (13.02~20130123.145454.330ef49-2) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix replace, provide, conflict 
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Thu, 24 Jan 2013 10:19:04 -0500
+
+xivo-monitoring (12.19~20120913.134207.3c7b37b-3) squeeze-xivo-skaro-dev; urgency=low
+
+  * fix version 
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Tue, 25 Sep 2012 16:02:47 -0400
+
+pf-xivo-monitoring (12.19~20120913.134207.3c7b37b-2) squeeze-xivo-skaro-dev; urgency=low
+
+  * add xivo-config depends
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Tue, 25 Sep 2012 14:53:24 -0400
+
+pf-xivo-monitoring (1.2~20110921.151801.f1f922c-1) squeeze-xivo-skaro-dev; urgency=low
+
+  * Add libnet-ip-perl dependency for dhcpd3 munin plugin.
+
+ -- Etienne Lessard <edesrocherslessard@avencall.com>  Wed, 21 Sep 2011 15:15:01 -0400
+
+pf-xivo-monitoring (0.23~svn10090-3) squeeze-xivo-skaro-dev; urgency=low
+
+  * delete depends on lighttpd, add depends on nginx 
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Fri, 20 May 2011 09:57:14 +0200
+
+pf-xivo-monitoring (0.23~svn10090-2) squeeze-xivo-skaro-dev; urgency=low
+
+  * first build for squeeze 
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Tue, 01 Feb 2011 14:36:42 +0100
+
+pf-xivo-monitoring (0.23~svn10090-0) lenny-xivo-skaro-dev; urgency=low
+
+  * rename pf-monit in pf-xivo-monitoring
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Tue, 01 Feb 2011 12:02:13 +0100
+
+pf-monit (0.23~svn9943-1) lenny; urgency=low
+
+  * remove apache pre and post configuration
+
+ -- Nicolas HICHER (atarakt) <nhicher@proformatique.com>  Thu, 13 Jan 2011 16:16:57 +0100
+
+pf-monit (0.23~svn9943-0) lenny; urgency=low
+
+  * move project in xivo
+  * rename pf-monitoring-monit pf-monit
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Thu, 03 Dec 2009 17:09:00 +0100
+
+pf-monitoring-monit (0.23~svn89-0+etch) etch-dev; urgency=low
+
+  * NUR (now depends on pf-server-config).
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Thu, 03 Dec 2009 16:49:10 +0100
+
+pf-monitoring-monit (0.20~svn45-0) etch; urgency=low
+
+  * Added new 'checks-spc' directory.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Wed, 27 May 2009 18:52:37 +0200
+
+pf-monitoring-monit (0.18-1) etch; urgency=low
+
+  * Made package non-native.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 21 Apr 2009 18:05:14 +0200
+
+pf-monitoring-monit (0.17) etch; urgency=low
+
+  * Fixed services group membership.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Wed, 08 Apr 2009 15:00:06 +0200
+
+pf-monitoring-monit (0.16) etch; urgency=low
+
+  * Fixed timeout syntax.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 31 Mar 2009 11:48:52 +0200
+
+pf-monitoring-monit (0.15) etch; urgency=low
+
+  * Added a temporary workaround for heavily loaded pf-xivo-cti-server:
+    increase timeout to 10s.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 31 Mar 2009 11:40:32 +0200
+
+pf-monitoring-monit (0.14) etch; urgency=low
+
+  * Added missing workdir '/var/lib/pf-monitoring-monit' creation.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Fri, 27 Mar 2009 11:25:12 +0100
+
+pf-monitoring-monit (0.13) etch; urgency=low
+
+  * Removed monit start delay, not yet implemented (since 5.0 beta4).
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 17 Mar 2009 18:09:56 +0100
+
+pf-monitoring-monit (0.12) etch; urgency=low
+
+  * Added monit start delay to avoid startup warning flood.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 17 Mar 2009 17:24:17 +0100
+
+pf-monitoring-monit (0.11) etch; urgency=low
+
+  * Backup old monit general config file.
+  * Ignore instance and changed alerts, not really interesting.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 17 Mar 2009 16:44:21 +0100
+
+pf-monitoring-monit (0.10) etch; urgency=low
+
+  * Fixed monit activation at install time.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Fri, 13 Mar 2009 13:46:54 +0100
+
+pf-monitoring-monit (0.9) etch; urgency=low
+
+  * Enable monit server in '/etc/default/monit' at install time (but not
+    for upgrades, so a local admin can disable it later).
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Thu, 12 Mar 2009 12:57:35 +0100
+
+pf-monitoring-monit (0.8) etch; urgency=low
+
+  * Fixed changelog (was obsolete).
+  * Created missing monit config directory.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Thu, 12 Mar 2009 12:48:26 +0100
+
+pf-monitoring-monit (0.7) etch; urgency=low
+
+  * Changed path for common config.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Wed, 11 Mar 2009 10:47:26 +0100
+
+pf-monitoring-monit (0.6) etch; urgency=low
+
+  [ Adrien DELLE CAVE (Decryptus) ]
+  * Modified apache2 monitoring port 80 to 443 with SSL.
+
+  [ Marc Dequènes (Duck) ]
+  * Used new htaccess path.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Wed, 11 Mar 2009 10:40:29 +0100
+
+pf-monitoring-monit (0.5) etch; urgency=low
+
+  * Fixed configuration installation path.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 10 Mar 2009 18:35:09 +0100
+
+pf-monitoring-monit (0.4) etch; urgency=low
+
+  * Now depends on pf-stats.
+  * Adapted to new apache layout.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 10 Mar 2009 18:26:45 +0100
+
+pf-monitoring-monit (0.3) etch; urgency=low
+
+  * Added access to the monit web interface using an Apache reverse
+    proxy.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Tue, 10 Mar 2009 10:36:13 +0100
+
+pf-monitoring-monit (0.2) etch; urgency=low
+
+  * Use '/etc/pf_common.conf' config file if present instead of
+    '/usr/share/pf-common/ALERTS_EMAIL'.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Mon, 09 Mar 2009 12:11:12 +0100
+
+pf-monitoring-monit (0.1) etch; urgency=low
+
+  * New package.
+
+ -- Marc Dequènes (Duck) <mdequenes@proformatique.com>  Thu, 05 Mar 2009 16:19:36 +0100
