@@ -8,12 +8,6 @@ set -e
 
 case "$1" in
     configure)
-
-	    # enable monit for initial install only
-	    # (to allow being disabled by the local admin)
-	    if [ -z "$2" ]; then
-	    	sed -ri 's/^([ \t]*startup[ \t]*=).*$/\11/' /etc/default/monit
-	    fi
         # /var/www/munin must be owned by munin user
         chown -R munin:munin /var/www/munin
 
