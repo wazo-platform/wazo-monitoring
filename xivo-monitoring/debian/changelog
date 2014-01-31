@@ -1,3 +1,9 @@
+xivo-monitoring (14.02~20140121.224221.bdb5029-wheezy-2) xivo-dev; urgency=low
+
+  * remove /etc/default/monit update on postinst
+
+ -- Etienne Lessard <elessard@avencall.com>  Fri, 31 Jan 2014 15:14:31 -0500
+
 xivo-monitoring (13.02~20130123.145454.330ef49-2) squeeze-xivo-skaro-dev; urgency=low
 
   * fix replace, provide, conflict 
