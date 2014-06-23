@@ -203,7 +203,7 @@ if [ -n "${HDDTEMP_DRIVES}" ]; then
   echo
   echo "[hddtemp_smartctl]"
   echo "env.drives ${HDDTEMP_DRIVES}"
-  echo -e "${HDDTEMP_CONFIG}"
+  echo "${HDDTEMP_CONFIG}"
   ) >>${CONFIG_3WARE}
   activate_plugin hddtemp_smartctl
 fi
