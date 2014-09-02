@@ -1,5 +1,0 @@
-check process xivo-restapid with pidfile /var/run/xivo-restapid.pid
-	group telephony
-	start program = "/etc/init.d/xivo-restapi start"
-	stop program = "/etc/init.d/xivo-restapi stop"
-	if 5 restarts within 5 cycles then timeout
