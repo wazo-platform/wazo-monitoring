@@ -1,4 +1,4 @@
-check process xivo-confd with pidfile /var/run/xivo-confd.pid
+check process xivo-confd with pidfile /var/run/xivo-confd/xivo-confd.pid
 	group telephony
 	start program = "/etc/init.d/xivo-confd start"
 	stop program = "/etc/init.d/xivo-confd stop"
