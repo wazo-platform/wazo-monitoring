@@ -1,4 +1,4 @@
-check process xivo-ami with pidfile /var/run/xivo-amid/xivo-amid.pid
+check process xivo-amid with pidfile /var/run/xivo-amid/xivo-amid.pid
 	group telephony
 	start program = "/etc/init.d/xivo-amid start"
 	stop program = "/etc/init.d/xivo-amid stop"
