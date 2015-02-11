@@ -46,7 +46,7 @@ if (! eval "require Net::Telnet;")
 
 # At this time we only use theses
 
-my @CODECS = exists $ENV{'codecs'} ? split ' ',$ENV{'codecs'} : qw(gsm ulaw alaw g729 speex);
+my @CODECS = exists $ENV{'codecs'} ? split ' ',$ENV{'codecs'} : qw(gsm ulaw alaw g729 g722 speex);
 
 if ($ARGV[0] and $ARGV[0] eq "config")
 {
