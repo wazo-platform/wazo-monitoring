@@ -87,12 +87,10 @@ my $nb = 0;
 
 #* Total number of MeetMe users: 1
 
-while (($line = $pop->getline) and ($line !~ /END COMMAND|No active MeetMe/o))
-{
-    $nb = $1 if $line =~ /MeetMe users:\s(\d)$/;
-}
 while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
-{}
+{
+    $nb = $1 if $line =~ /MeetMe users:\s(\d+)$/;
+}
 
 
 $pop->print("Action: logoff");
