@@ -121,7 +121,7 @@ my ($results,$start)=(0,0);
 my @fields;
 while (($line = $pop->getline)  and ($line !~ /--END/o))
 {
-    if ($start) {
+    if (($start) and ($line !~ /voicemail users configured/o)) {
 	@fields = (split ' ', $line);
 	$results = $results + pop(@fields);
     }
