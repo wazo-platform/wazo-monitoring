@@ -132,6 +132,8 @@ while (($line = $pop->getline)  and ($line !~ /--END/o))
 # Logoff
 $pop->print("Action: logoff");
 $pop->print("");
+while ($line = $pop->getline) {}
+$pop->close();
 
 print "messages.value $results\n";
 # vim:syntax=perl
