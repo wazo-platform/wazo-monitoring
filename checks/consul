@@ -1,11 +1,11 @@
 check process consul with pidfile /var/run/consul/consul.pid
-        group telephony
-        start program = "/etc/init.d/consul start"
-        stop  program = "/etc/init.d/consul stop"
-        if failed
-                port 8500
-                protocol http
-                request "/v1/agent/services"
-                timeout 5 seconds
-                then restart
-        if 5 restarts within 5 cycles then timeout
+	group telephony
+	start program = "/etc/init.d/consul start"
+	stop  program = "/etc/init.d/consul stop"
+	if failed
+		port 8500
+		protocol http
+		request "/v1/agent/services"
+		timeout 5 seconds
+		then restart
+	if 5 restarts within 5 cycles then timeout
