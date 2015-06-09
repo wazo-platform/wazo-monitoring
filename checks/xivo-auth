@@ -1,0 +1,11 @@
+check process xivo-auth with pidfile /var/run/xivo-auth/xivo-auth.pid
+	group telephony
+	start program = "/etc/init.d/xivo-auth start"
+	stop  program = "/etc/init.d/xivo-auth stop"
+	if failed
+		port 9497
+		protocol http
+		request "/0.1/backends"
+		timeout 5 seconds
+		then restart
+	if 5 restarts within 5 cycles then timeout
