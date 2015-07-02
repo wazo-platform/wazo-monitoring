@@ -4,6 +4,7 @@ check process xivo-auth with pidfile /var/run/xivo-auth/xivo-auth.pid
 	stop  program = "/etc/init.d/xivo-auth stop"
 	if failed
 		port 9497
+		type tcpssl
 		protocol http
 		request "/0.1/backends"
 		timeout 5 seconds
