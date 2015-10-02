@@ -1,0 +1,5 @@
+check process xivo-dird-phoned with pidfile /var/run/xivo-dird-phoned/xivo-dird-phoned.pid
+	group telephony
+	start program = "/etc/init.d/xivo-dird-phoned start"
+	stop program = "/etc/init.d/xivo-dird-phoned stop"
+	if 5 restarts within 5 cycles then timeout
