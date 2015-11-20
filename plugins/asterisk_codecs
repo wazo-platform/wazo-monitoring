@@ -96,9 +96,10 @@ $pop->print("Command: sip show channels");
 $pop->print("");
 
 #Response: Follows
-#Peer             User/ANR    Call ID      Seq (Tx/Rx)   Format
-#192.168.1.135    yann        6902112b3e0  00101/00002   g729
-#1 active SIP channel(s)
+#Peer             User/ANR         Call ID          Format           Hold     Last Message    Expiry     Peer      
+#192.168.17.99    4b1ljr           313434383032383  (alaw)           No       Tx: ACK                    4b1ljr    
+#192.168.17.101   65kvmb           313434383032383  (alaw)           No       Tx: ACK                    65kvmb
+#2 active SIP channel(s)
 #--END COMMAND--
 
 my @results;
@@ -115,7 +116,7 @@ while (($line = $pop->getline) and ($line !~ /active SIP dialogs/o))
     if ($start) {
 	@fields = (split ' ', $line);
 	foreach my $codec (@CODECS) {
-	    $results[$i] = $results[$i] + 1 if ($fields[4] eq "($codec)");
+	    $results[$i] = $results[$i] + 1 if ($fields[3] eq "($codec)");
 	    $i++;
 	}
     }
@@ -129,9 +130,10 @@ $pop->print("Command: iax2 show channels");
 $pop->print("");
 
 #Response: Follows
-#Channel               Peer             Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format
-#IAX2/rodolphe@rodolp  10.8.53.6        rodolphe    00003/01287  00006/00004  00000ms  0148ms  0000ms  gsm
-#1 active IAX channel(s)
+#Channel               Peer             Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format  FirstMsg    LastMsg
+#IAX2/trunkast         192.168.32.248   trunkast    06737/07371  00002/00003  00000ms  -0001ms  0000ms  Unknow  Tx:NEW      Tx:ACK    
+#IAX2/barotrunka       192.168.51.252   barotrunka  10108/02659  00004/00005  00000ms  -0001ms  0000ms  Unknow  Tx:NEW      Rx:ACK 
+#2 active IAX channel(s)
 #--END COMMAND--
 
 $start = 0;
