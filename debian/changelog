@@ -1,4 +1,4 @@
-xivo-monitoring (14.02~20140121.224221.bdb5029-wheezy-2) xivo-dev; urgency=low
+xivo-monitoring (14.02~20140121.224221.bdb5029) xivo-dev; urgency=low
 
   * remove /etc/default/monit update on postinst
 
