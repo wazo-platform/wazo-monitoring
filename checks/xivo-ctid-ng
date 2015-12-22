@@ -1,5 +1,5 @@
 check process xivo-ctid-ng with pidfile /var/run/xivo-ctid-ng/xivo-ctid-ng.pid
 	group telephony
-	start program = "/etc/init.d/xivo-ctid-ng start"
-	stop program = "/etc/init.d/xivo-ctid-ng stop"
+	start program = "/bin/systemctl start xivo-ctid-ng.service"
+	stop program = "/bin/systemctl stop xivo-ctid-ng.service"
 	if 5 restarts within 5 cycles then timeout

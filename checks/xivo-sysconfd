@@ -1,7 +1,7 @@
 check process xivo-sysconfd with pidfile /var/run/xivo-sysconfd.pid
 	group telephony
-	start program = "/etc/init.d/xivo-sysconfd start"
-	stop program = "/etc/init.d/xivo-sysconfd stop"
+	start program = "/bin/systemctl start xivo-sysconfd.service"
+	stop program = "/bin/systemctl stop xivo-sysconfd.service"
 	if failed host 127.0.0.1 port 8668 use type tcp
 		send "GET /status-check HTTP/1.1\r\nHost: 127.0.0.1\r\nUser-Agent: monit\r\n\r\n"
 		expect "200 OK"

@@ -1,7 +1,7 @@
 check process xivo-auth with pidfile /var/run/xivo-auth/xivo-auth.pid
 	group telephony
-	start program = "/etc/init.d/xivo-auth start"
-	stop  program = "/etc/init.d/xivo-auth stop"
+	start program = "/bin/systemctl start xivo-auth.service"
+	stop  program = "/bin/systemctl stop xivo-auth.service"
 	if failed
 		port 9497
 		type tcpssl

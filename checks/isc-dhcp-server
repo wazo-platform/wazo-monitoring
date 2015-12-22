@@ -1,5 +1,5 @@
 check process isc-dhcp-server with pidfile /var/run/dhcpd.pid
-  start program = "/etc/init.d/isc-dhcp-server start"
-  stop  program = "/etc/init.d/isc-dhcp-server stop"
+  start program = "/bin/systemctl start isc-dhcp-server.service"
+  stop  program = "/bin/systemctl stop isc-dhcp-server.service"
   if failed host 127.0.0.1 port 67 type udp then alert
   if 5 restarts within 5 cycles then timeout

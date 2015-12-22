@@ -1,5 +1,5 @@
 check process rabbitmq with pidfile /var/run/rabbitmq/pid
 	group telephony
-	start program = "/etc/init.d/rabbitmq-server start"
-	stop program = "/etc/init.d/rabbitmq-server stop"
+	start program = "/bin/systemctl start rabbitmq-server.service"
+	stop program = "/bin/systemctl stop rabbitmq-server.service"
 	if 5 restarts within 5 cycles then timeout
