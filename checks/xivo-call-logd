@@ -1,5 +1,5 @@
 check process xivo-call-logd with pidfile /var/run/xivo-call-logd.pid
 	group telephony
-	start program = "/etc/init.d/xivo-call-logs start"
-	stop program = "/etc/init.d/xivo-call-logs stop"
+	start program = "/bin/systemctl start xivo-call-logs.service"
+	stop program = "/bin/systemctl stop xivo-call-logs.service"
 	if 5 restarts within 5 cycles then timeout

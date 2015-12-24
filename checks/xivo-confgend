@@ -1,7 +1,7 @@
 check process xivo-confgend with pidfile /var/run/xivo-confgend.pid
 	group telephony
-	start program = "/etc/init.d/xivo-confgend start"
-	stop program = "/etc/init.d/xivo-confgend stop"
+	start program = "/bin/systemctl start xivo-confgend.service"
+	stop program = "/bin/systemctl stop xivo-confgend.service"
 	if failed host 127.0.0.1 port 8669 use type tcp
 		then alert #restart
 	if 5 restarts within 5 cycles then timeout
