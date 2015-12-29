@@ -9,7 +9,22 @@ Standards-Version: 3.7.2.2
 Package: xivo-monitoring
 Architecture: all
 Pre-Depends: monit, nginx
-Depends: xivo-config, ethtool, hdparm, libcrypt-ssleay-perl, libcurses-perl, libdate-manip-perl, libnet-ip-perl, libnet-netmask-perl, libnet-telnet-perl, libterm-readkey-perl, libwww-perl, munin, munin-node, nginx, python, smartmontools
+Depends: ethtool,
+         hdparm,
+         libcrypt-ssleay-perl,
+         libcurses-perl,
+         libdate-manip-perl,
+         libnet-ip-perl,
+         libnet-netmask-perl,
+         libnet-telnet-perl,
+         libterm-readkey-perl,
+         libwww-perl,
+         munin,
+         munin-node,
+         nginx,
+         python,
+         smartmontools,
+         xivo-config
 Provides: pf-xivo-monitoring
 Replaces: pf-xivo-monitoring
 Conflicts: munin-plugins-extra, pf-xivo-monitoring
