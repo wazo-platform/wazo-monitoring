@@ -1,6 +1,6 @@
 check process asterisk with pidfile /var/run/asterisk/asterisk.pid
 	group telephony
-	start program = "/usr/bin/xivo-service restart xivo-nomonit"
+	start program = "/usr/bin/xivo-service restart xivo-nomonit" with timeout 90 seconds
 	stop program = "/bin/bash -c '/bin/kill -ABRT $(/bin/pidof asterisk)' ; /usr/bin/xivo-service stop xivo-nomonit"
 
 	if failed host 127.0.0.1 port 5038 use type tcp
