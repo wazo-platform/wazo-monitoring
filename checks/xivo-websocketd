@@ -1,0 +1,5 @@
+check process xivo-websocketd with pidfile /var/run/xivo-websocketd/xivo-websocketd.pid
+	group telephony
+	start program = "/bin/systemctl start xivo-websocketd.service"
+	stop program = "/bin/systemctl stop xivo-websocketd.service"
+	if 5 restarts within 5 cycles then timeout
