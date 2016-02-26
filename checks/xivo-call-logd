@@ -1,4 +1,4 @@
-check process xivo-call-logd with pidfile /var/run/xivo-call-logd.pid
+check process xivo-call-logd with pidfile /var/run/xivo-call-logd/xivo-call-logd.pid
 	group telephony
 	start program = "/bin/systemctl start xivo-call-logs.service"
 	stop program = "/bin/systemctl stop xivo-call-logs.service"
