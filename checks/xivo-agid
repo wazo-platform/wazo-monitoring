@@ -1,4 +1,4 @@
-check process xivo-agid with pidfile /var/run/xivo-agid.pid
+check process xivo-agid with pidfile /var/run/xivo-agid/xivo-agid.pid
 	group telephony
 	start program = "/bin/systemctl start xivo-agid.service"
 	stop  program = "/bin/systemctl stop xivo-agid.service"
