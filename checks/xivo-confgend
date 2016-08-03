@@ -1,4 +1,4 @@
-check process xivo-confgend with pidfile /var/run/xivo-confgend.pid
+check process xivo-confgend with pidfile /var/run/xivo-confgend/xivo-confgend.pid
 	group telephony
 	start program = "/bin/systemctl start xivo-confgend.service"
 	stop program = "/bin/systemctl stop xivo-confgend.service"
