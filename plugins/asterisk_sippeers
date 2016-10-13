@@ -76,6 +76,8 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
@@ -89,10 +91,11 @@ $pop->print("");
 
 my ($result, $start)=(0,0);
 
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while (($line = $pop->getline) and ($line !~ /\d+ sip peer/))
 {
     if ($start) {
-	$result = $result + 1 if ((split ' ',$line)[1] ne "(Unspecified)");
+        $line =~ s/^Output: //;
+        $result = $result + 1 if ((split ' ',$line)[1] ne "(Unspecified)");
     }
 
     $start = 1 if ($line =~ /Name/o);
@@ -100,7 +103,7 @@ while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
 
 $pop->print("Action: logoff");
 $pop->print("");
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while ($line = $pop->getline)
 {}
 $pop->close();
 

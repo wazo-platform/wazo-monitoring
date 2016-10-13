@@ -124,6 +124,9 @@ $pop->print("Secret: $secret");
 $pop->print("Events: off");
 $pop->print("");
 
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
+
 ## Request status of messages.
 $pop->print("Action: command");
 $pop->print("Command: sip show channels");
@@ -151,6 +154,7 @@ while (($line = $pop->getline) and ($line !~ /active SIP/o))
 {
     $i = 0;
     if ($start) {
+        $line =~ s/^Output: //;
         my @fields = (split ' ', $line);
         my $chan_codec = $fields[3];
         $chan_codec =~ s/\(|\)//g;

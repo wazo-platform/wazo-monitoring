@@ -100,17 +100,19 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
 $pop->print("Command: iax2 show channels");
 $pop->print("");
 
-#Response: Follows
-#Channel               Peer             Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format
-#IAX2/rodolphe@rodolp  10.8.53.6        rodolphe    00003/01287  00006/00004  00000ms  0148ms  0000ms  gsm
-#1 active IAX channel(s)
-#--END COMMAND--
+#Response: Success
+#Message: Command output follows
+#Output: Channel               Peer             Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format
+#Output: IAX2/rodolphe@rodolp  10.8.53.6        rodolphe    00003/01287  00006/00004  00000ms  0148ms  0000ms  gsm
+#Output: 1 active IAX channel
 
 my @results;
 my ($i, $all, $start)=(0,0,0);
@@ -124,22 +126,23 @@ while (($line = $pop->getline) and ($line !~ /active IAX channel/o))
 {
     $i = 0;
     if ($start) {
-	@fields = (split ' ', $line);
-	foreach my $codec (@CODECS) {
-	    $results[$i] = $results[$i] + 1 if ($fields[8] eq "$codec");
-	    $i++;
-	}
-	$all++;
+        $line =~ s/^Output: //;
+        @fields = (split ' ', $line);
+        foreach my $codec (@CODECS) {
+            $results[$i] = $results[$i] + 1 if ($fields[8] eq "$codec");
+            $i++;
+        }
+        $all++;
     }
 
     $start = 1 if ($line =~ /Channel/o);
 }
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while (($line = $pop->getline) and ($line ne "\n"))
 {}
 
 $pop->print("Action: logoff");
 $pop->print("");
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while ($line = $pop->getline)
 {}
 $pop->close();
 
