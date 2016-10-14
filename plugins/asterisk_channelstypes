@@ -88,6 +88,8 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
@@ -110,10 +112,11 @@ foreach my $channel (@CHANNELS) {
 }
 
 my @fields;
-while (($line = $pop->getline) and ($line !~ /active channels/o))
+while (($line = $pop->getline) and ($line !~ /active channel/o))
 {
     $i = 0;
     if ($start) {
+	$line =~ s/^Output: //;
 	@fields = (split '/', $line);
 	foreach my $channel (@CHANNELS) {
 	    $results[$i] = $results[$i] + 1 if ($fields[0] eq $channel);
@@ -122,14 +125,14 @@ while (($line = $pop->getline) and ($line !~ /active channels/o))
     }
     $start = 1 if ($line =~ /Channel/o);
 }
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while (($line = $pop->getline) and ($line ne "\n"))
 {}
 
 
 # Logoff
 $pop->print("Action: logoff");
 $pop->print("");
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while ($line = $pop->getline)
 {}
 $pop->close();
 

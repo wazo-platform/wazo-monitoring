@@ -106,6 +106,8 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
@@ -119,11 +121,12 @@ $pop->print("");
 my ($results,$start)=(0,0);
 
 my @fields;
-while (($line = $pop->getline)  and ($line !~ /--END/o))
+while (($line = $pop->getline)  and ($line ne "\n"))
 {
     if (($start) and ($line !~ /voicemail users configured/o)) {
-	@fields = (split ' ', $line);
-	$results = $results + pop(@fields);
+        $line =~ s/^Output: //;
+        @fields = (split ' ', $line);
+        $results = $results + pop(@fields);
     }
 
     $start = 1 if ($line =~ /Context/o);

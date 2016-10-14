@@ -89,18 +89,20 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
 $pop->print("Command: sip show channels");
 $pop->print("");
 
-#Response: Follows
-#Peer             User/ANR         Call ID          Format           Hold     Last Message    Expiry     Peer      
-#192.168.17.99    4b1ljr           313434383032383  (alaw)           No       Tx: ACK                    4b1ljr    
-#192.168.17.101   65kvmb           313434383032383  (alaw)           No       Tx: ACK                    65kvmb
-#2 active SIP channel(s)
-#--END COMMAND--
+#Response: Success
+#Message: Command output follows
+#Output: Peer             User/ANR         Call ID          Format           Hold     Last Message    Expiry     Peer
+#Output: 192.168.17.99    4b1ljr           313434383032383  (alaw)           No       Tx: ACK                    4b1ljr
+#Output: 192.168.17.101   65kvmb           313434383032383  (alaw)           No       Tx: ACK                    65kvmb
+#Output: 2 active SIP dialogs
 
 my @results;
 my ($i, $start)=(0,0);
@@ -110,10 +112,11 @@ foreach my $codec (@CODECS) {
 }
 
 my @fields;
-while (($line = $pop->getline) and ($line !~ /active SIP dialogs/o))
+while (($line = $pop->getline) and ($line !~ /active SIP dialog/o))
 {
     $i = 0;
     if ($start) {
+	$line =~ s/^Output: //;
 	@fields = (split ' ', $line);
 	foreach my $codec (@CODECS) {
 	    $results[$i] = $results[$i] + 1 if ($fields[3] eq "($codec)");
@@ -123,40 +126,42 @@ while (($line = $pop->getline) and ($line !~ /active SIP dialogs/o))
 
     $start = 1 if ($line =~ /Peer/o);
 }
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
 $pop->print("Command: iax2 show channels");
 $pop->print("");
 
-#Response: Follows
-#Channel               Peer             Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format  FirstMsg    LastMsg
-#IAX2/trunkast         192.168.32.248   trunkast    06737/07371  00002/00003  00000ms  -0001ms  0000ms  Unknow  Tx:NEW      Tx:ACK    
-#IAX2/barotrunka       192.168.51.252   barotrunka  10108/02659  00004/00005  00000ms  -0001ms  0000ms  Unknow  Tx:NEW      Rx:ACK 
-#2 active IAX channel(s)
-#--END COMMAND--
+#Response: Success
+#Message: Command output follows
+#Output: Channel               Peer                                      Username    ID (Lo/Rem)  Seq (Tx/Rx)  Lag      Jitter  JitBuf  Format  FirstMsg    LastMsg
+#Output: IAX2/trunkast         192.168.32.248   trunkast    06737/07371  00002/00003  00000ms  -0001ms  0000ms  Unknow  Tx:NEW      Tx:ACK
+#Output: IAX2/barotrunka       192.168.51.252   barotrunka  10108/02659  00004/00005  00000ms  -0001ms  0000ms  Unknow  Tx:NEW      Rx:ACK
+#Output: 2 active IAX channels
 
 $start = 0;
 while (($line = $pop->getline) and ($line !~ /active IAX channel/o))
 {
     $i = 0;
     if ($start) {
-	@fields = (split ' ', $line);
-	foreach my $codec (@CODECS) {
-	    $results[$i] = $results[$i] + 1 if ($fields[8] eq "$codec");
-	    $i++;
-	}
+        $line =~ s/^Output: //;
+        @fields = (split ' ', $line);
+        foreach my $codec (@CODECS) {
+            $results[$i] = $results[$i] + 1 if ($fields[8] eq "$codec");
+            $i++;
+        }
     }
     $start = 1 if ($line =~ /Channel/o);
 }
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while (($line = $pop->getline) and ($line ne "\n"))
 {}
-
 
 # Logoff
 $pop->print("Action: logoff");
 $pop->print("");
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while ($line = $pop->getline)
 {}
 $pop->close();
 

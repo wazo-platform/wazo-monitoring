@@ -76,6 +76,8 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
@@ -84,10 +86,11 @@ $pop->print("");
 
 my ($result, $start)=(0,0);
 
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while (($line = $pop->getline) and ($line ne "\n"))
 {
     if ($start and $line !~ /iax2 peers/) {
         #print $line;
+        $line =~ s/^Output: //;
         if ((split ' ',$line)[4] > 0) {
             $result = $result + 1 ;
         }
@@ -98,7 +101,7 @@ while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
 
 $pop->print("Action: logoff");
 $pop->print("");
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while ($line = $pop->getline)
 {}
 
 $pop->close();

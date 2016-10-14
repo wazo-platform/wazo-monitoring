@@ -76,6 +76,8 @@ $pop->print("");
 
 #Response: Success
 #Message: Authentication accepted
+while (($line = $pop->getline) and ($line ne "\n"))
+{}
 
 ## Request status of messages.
 $pop->print("Action: command");
@@ -83,11 +85,11 @@ $pop->print("Command: meetme list");
 $pop->print("");
 
 
-#Response: Follows
+#Response: Success
+#Message: Command output follows
 #Conf Num       Parties        Marked     Activity  Creation
 #5500           0001           N/A        00:00:03  Static
 #* Total number of MeetMe users: 1
-#--END COMMAND--
 
 my ($confs, $start)=(0,0);
 
@@ -100,12 +102,12 @@ while (($line = $pop->getline) and ($line !~ /Total number|No active MeetMe/o))
 
     $start = 1 if ($line =~ /Conf\sNum\s*Parties/o);
 }
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while (($line = $pop->getline) and ($line ne "\n"))
 {}
 
 $pop->print("Action: logoff");
 $pop->print("");
-while (($line = $pop->getline) and ($line !~ /END COMMAND/o))
+while ($line = $pop->getline)
 {}
 $pop->close();
 
