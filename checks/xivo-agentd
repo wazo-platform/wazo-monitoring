@@ -1,4 +1,4 @@
-check process xivo-agentd with pidfile /var/run/xivo-agentd.pid
+check process xivo-agentd with pidfile /var/run/xivo-agentd/xivo-agentd.pid
 	group telephony
 	start program = "/bin/systemctl start xivo-agentd.service"
 	stop program = "/bin/systemctl stop xivo-agentd.service"
