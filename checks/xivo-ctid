@@ -1,4 +1,4 @@
-check process xivo-ctid with pidfile /var/run/xivo-ctid.pid
+check process xivo-ctid with pidfile /var/run/xivo-ctid/xivo-ctid.pid
 	group telephony
 	start program = "/bin/systemctl start xivo-ctid.service"
 	stop program = "/bin/systemctl stop xivo-ctid.service"
