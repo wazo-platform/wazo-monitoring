@@ -1,5 +1,5 @@
 check process wazo-admin-ui with pidfile /var/run/wazo-admin-ui/wazo-admin-ui.pid
-  	group telephony
-  	start program = "/bin/systemctl start wazo-admin-ui.service"	
-    stop program = "/bin/systemctl stop wazo-admin-ui.service"	
-    if 5 restarts within 5 cycles then timeout
+	group telephony
+	start program = "/bin/systemctl start wazo-admin-ui.service"
+	stop program = "/bin/systemctl stop wazo-admin-ui.service"
+	if 5 restarts within 5 cycles then timeout
