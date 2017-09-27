@@ -1,4 +1,4 @@
-check process xivo-auth with pidfile /var/run/xivo-auth/xivo-auth.pid
+check process xivo-auth with pidfile /var/run/wazo-auth/wazo-auth.pid
 	group telephony
 	start program = "/bin/systemctl start xivo-auth.service"
 	stop  program = "/bin/systemctl stop xivo-auth.service"
