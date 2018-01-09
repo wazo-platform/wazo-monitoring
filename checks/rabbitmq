@@ -1,4 +1,4 @@
-check process rabbitmq with pidfile /var/run/rabbitmq/pid
+check process rabbitmq with pidfile "/var/lib/rabbitmq/mnesia/rabbit@localhost.pid"
 	group telephony
 	start program = "/bin/systemctl start rabbitmq-server.service"
 	stop program = "/bin/systemctl stop rabbitmq-server.service"
