@@ -1,5 +1,0 @@
-check process xivo-dird with pidfile /var/run/xivo-dird/xivo-dird.pid
-	group telephony
-	start program = "/bin/systemctl start xivo-dird.service"
-	stop program = "/bin/systemctl stop xivo-dird.service"
-	if 5 restarts within 5 cycles then timeout

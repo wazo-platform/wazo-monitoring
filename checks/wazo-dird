@@ -1,0 +1,5 @@
+check process wazo-dird with pidfile /var/run/wazo-dird/wazo-dird.pid
+	group telephony
+	start program = "/bin/systemctl start wazo-dird.service"
+	stop program = "/bin/systemctl stop wazo-dird.service"
+	if 5 restarts within 5 cycles then timeout
