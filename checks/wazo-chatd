@@ -1,0 +1,5 @@
+check process wazo-chatd with pidfile /var/run/wazo-chatd/wazo-chatd.pid
+	group telephony
+	start program = "/bin/systemctl start wazo-chatd.service"
+	stop program = "/bin/systemctl stop wazo-chatd.service"
+	if 5 restarts within 5 cycles then timeout
