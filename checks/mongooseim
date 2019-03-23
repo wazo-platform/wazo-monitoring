@@ -1,5 +1,0 @@
-check process mongooseim with pidfile /var/run/mongooseim/mongooseim.pid
-	group telephony
-	start program = "/bin/systemctl start mongooseim.service"
-	stop program = "/bin/systemctl stop mongooseim.service"
-	if 5 restarts within 5 cycles then timeout
