@@ -1,0 +1,5 @@
+check process wazo-calld with pidfile /var/run/wazo-calld/wazo-calld.pid
+	group telephony
+	start program = "/bin/systemctl start wazo-calld.service"
+	stop program = "/bin/systemctl stop wazo-calld.service"
+	if 5 restarts within 5 cycles then timeout
