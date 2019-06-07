@@ -1,5 +1,0 @@
-check process xivo-confd with pidfile /var/run/xivo-confd/xivo-confd.pid
-	group telephony
-	start program = "/bin/systemctl start xivo-confd.service"
-	stop program = "/bin/systemctl stop xivo-confd.service"
-	if 5 restarts within 5 cycles then timeout
