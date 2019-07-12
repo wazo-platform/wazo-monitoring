@@ -24,8 +24,13 @@ activate_check()
 # known services
 for check in $MONIT_CHECKS/*; do
     service=$(basename $check)
-    if [ "$service" != "isc-dhcp-server" ]; then
-        # isc-dhcp will be updated by xivo-sysconfd
+    if [ "$service" = "isc-dhcp-server" ]; then
+        if [ "${XIVO_DHCP_ACTIVE}" = "1" ]; then
+            ln -s /usr/share/xivo-monitoring/checks/isc-dhcp-server /etc/monit/conf.d/isc-dhcp-server
+        else
+            rm -f /etc/monit/conf.d/isc-dhcp-server
+        fi
+    else
         activate_check $service
     fi
 done
