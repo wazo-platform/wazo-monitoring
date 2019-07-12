@@ -8,14 +8,14 @@ MONIT_CONF_DIR=/etc/monit/conf.d
 activate_check()
 {
     local check=$1
-    
+
     # cleanup broken link
     find $MONIT_CONF_DIR -type l -xtype l -exec rm {} \;
-    
+
     if [ -e $MONIT_CONF_DIR/$check ] && [ ! -L $MONIT_CONF_DIR/$check ]; then
       rm $MONIT_CONF_DIR/$check
     fi
-    
+
     if [ ! -e $MONIT_CONF_DIR/$check ]; then
       ln -s $MONIT_CHECKS/$check $MONIT_CONF_DIR/$check
     fi
