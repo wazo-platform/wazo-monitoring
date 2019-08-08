@@ -1,4 +1,0 @@
-check process xivo-provd with pidfile /var/run/xivo-provd/xivo-provd.pid
-	group telephony
-	start program = "/bin/systemctl start xivo-provd.service"
-	stop program = "/bin/systemctl stop xivo-provd.service"
