@@ -1,5 +1,0 @@
-check process xivo-amid with pidfile /var/run/xivo-amid/xivo-amid.pid
-	group telephony
-	start program = "/bin/systemctl start xivo-amid.service"
-	stop program = "/bin/systemctl stop xivo-amid.service"
-	if 5 restarts within 5 cycles then timeout

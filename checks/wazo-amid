@@ -1,0 +1,5 @@
+check process wazo-amid with pidfile /var/run/wazo-amid/wazo-amid.pid
+	group telephony
+	start program = "/bin/systemctl start wazo-amid.service"
+	stop program = "/bin/systemctl stop wazo-amid.service"
+	if 5 restarts within 5 cycles then timeout
