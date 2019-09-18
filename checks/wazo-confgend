@@ -1,0 +1,8 @@
+check process wazo-confgend with pidfile /var/run/wazo-confgend/wazo-confgend.pid
+	group telephony
+	start program = "/bin/systemctl start wazo-confgend.service"
+	stop program = "/bin/systemctl stop wazo-confgend.service"
+	if failed host 127.0.0.1 port 8669 use type tcp
+		then alert #restart
+	if 5 restarts within 5 cycles then timeout
+
