@@ -1,4 +1,4 @@
-check process wazo-agid with pidfile /var/run/wazo-agid/wazo-agid.pid
+check process wazo-agid with pidfile /run/wazo-agid/wazo-agid.pid
 	group telephony
 	start program = "/bin/systemctl start wazo-agid.service"
 	stop  program = "/bin/systemctl stop wazo-agid.service"

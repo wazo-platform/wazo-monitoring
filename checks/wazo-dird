@@ -1,4 +1,4 @@
-check process wazo-dird with pidfile /var/run/wazo-dird/wazo-dird.pid
+check process wazo-dird with pidfile /run/wazo-dird/wazo-dird.pid
 	group telephony
 	start program = "/bin/systemctl start wazo-dird.service"
 	stop program = "/bin/systemctl stop wazo-dird.service"
