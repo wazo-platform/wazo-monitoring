@@ -1,4 +1,4 @@
-check process wazo-confgend with pidfile /var/run/wazo-confgend/wazo-confgend.pid
+check process wazo-confgend with pidfile /run/wazo-confgend/wazo-confgend.pid
 	group telephony
 	start program = "/bin/systemctl start wazo-confgend.service"
 	stop program = "/bin/systemctl stop wazo-confgend.service"

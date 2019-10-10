@@ -1,4 +1,4 @@
-check process consul with pidfile /var/run/consul/consul.pid
+check process consul with pidfile /run/consul/consul.pid
 	group telephony
 	start program = "/bin/systemctl start consul.service"
 	stop  program = "/bin/systemctl stop consul.service"

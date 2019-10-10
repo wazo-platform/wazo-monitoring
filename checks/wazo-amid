@@ -1,4 +1,4 @@
-check process wazo-amid with pidfile /var/run/wazo-amid/wazo-amid.pid
+check process wazo-amid with pidfile /run/wazo-amid/wazo-amid.pid
 	group telephony
 	start program = "/bin/systemctl start wazo-amid.service"
 	stop program = "/bin/systemctl stop wazo-amid.service"

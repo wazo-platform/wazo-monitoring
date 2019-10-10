@@ -1,4 +1,4 @@
-check process wazo-phoned with pidfile /var/run/wazo-phoned/wazo-phoned.pid
+check process wazo-phoned with pidfile /run/wazo-phoned/wazo-phoned.pid
 	group telephony
 	start program = "/bin/systemctl start wazo-phoned.service"
 	stop program = "/bin/systemctl stop wazo-phoned.service"

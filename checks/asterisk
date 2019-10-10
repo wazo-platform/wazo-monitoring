@@ -1,4 +1,4 @@
-check process asterisk with pidfile /var/run/asterisk/asterisk.pid
+check process asterisk with pidfile /run/asterisk/asterisk.pid
 	group telephony
 	start program = "/usr/bin/wazo-service restart wazo-nomonit" with timeout 90 seconds
 	stop program = "/usr/bin/wazo-service stop wazo-nomonit"

@@ -1,4 +1,4 @@
-check process ntpd with pidfile /var/run/ntpd.pid
+check process ntpd with pidfile /run/ntpd.pid
   start program = "/bin/systemctl restart ntp.service"
   stop  program = "/bin/systemctl stop ntp.service"
   if failed host 127.0.0.1 port 123 type udp then alert

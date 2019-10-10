@@ -1,4 +1,4 @@
-check process wazo-websocketd with pidfile /var/run/wazo-websocketd/wazo-websocketd.pid
+check process wazo-websocketd with pidfile /run/wazo-websocketd/wazo-websocketd.pid
 	group telephony
 	start program = "/bin/systemctl start wazo-websocketd.service"
 	stop program = "/bin/systemctl stop wazo-websocketd.service"
