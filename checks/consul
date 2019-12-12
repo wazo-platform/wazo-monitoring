@@ -4,7 +4,6 @@ check process consul with pidfile /run/consul/consul.pid
 	stop  program = "/bin/systemctl stop consul.service"
 	if failed
 		port 8500
-		type tcpssl
 		protocol http
 		request "/v1/agent/services"
 		timeout 5 seconds
