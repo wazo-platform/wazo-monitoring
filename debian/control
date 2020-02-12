@@ -1,7 +1,7 @@
 Source: xivo-monitoring
 Section: admin
-Priority: extra
-Maintainer: Wazo Maintainers <dev@wazo.community)
+Priority: optional
+Maintainer: Wazo Maintainers <dev@wazo.community>
 Build-Depends: cdbs (>= 0.4.23-1.1), debhelper (>= 9)
 Standards-Version: 3.9.6
 
