@@ -1,5 +1,0 @@
-check process wazo-auth with pidfile /run/wazo-auth/wazo-auth.pid
-	group telephony
-	start program = "/bin/systemctl start wazo-auth.service"
-	stop  program = "/bin/systemctl stop wazo-auth.service"
-	if 5 restarts within 5 cycles then timeout
