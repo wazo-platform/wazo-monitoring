@@ -1,5 +1,0 @@
-check process wazo-confd with pidfile /run/wazo-confd/wazo-confd.pid
-	group telephony
-	start program = "/bin/systemctl start wazo-confd.service"
-	stop program = "/bin/systemctl stop wazo-confd.service"
-	if 5 restarts within 5 cycles then timeout

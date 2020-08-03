@@ -1,5 +1,0 @@
-check process wazo-agentd with pidfile /run/wazo-agentd/wazo-agentd.pid
-	group telephony
-	start program = "/bin/systemctl start wazo-agentd.service"
-	stop program = "/bin/systemctl stop wazo-agentd.service"
-	if 5 restarts within 5 cycles then timeout

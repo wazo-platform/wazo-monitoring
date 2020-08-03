@@ -1,9 +1,0 @@
-check process xivo-sysconfd with pidfile /run/xivo-sysconfd.pid
-	group telephony
-	start program = "/bin/systemctl start xivo-sysconfd.service"
-	stop program = "/bin/systemctl stop xivo-sysconfd.service"
-	if failed host 127.0.0.1 port 8668 use type tcp
-		send "GET /status-check HTTP/1.1\r\nHost: 127.0.0.1\r\nUser-Agent: monit\r\n\r\n"
-		expect "200 OK"
-		then alert #restart
-	if 5 restarts within 5 cycles then timeout
