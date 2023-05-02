@@ -223,4 +223,4 @@ for config_file in munin.conf munin-node.conf; do
 done
 
 # restart service to take changes into account
-invoke-rc.d munin-node restart >/dev/null
+systemctl restart munin-node >/dev/null
