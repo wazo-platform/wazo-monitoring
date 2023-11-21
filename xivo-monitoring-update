@@ -52,4 +52,4 @@ if [ -n "$emails" ]; then
 fi
 
 # restart service to take changes into account
-invoke-rc.d monit restart >/dev/null
+systemctl restart monit > /dev/null
