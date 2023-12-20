@@ -1,0 +1,5 @@
+checks usr/share/wazo-monitoring/
+plugins/* usr/share/munin/plugins/
+wazo-monitoring-update usr/sbin/
+wazo-monitoring-update-graphics usr/sbin/
+etc/* etc/
