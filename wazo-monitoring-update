@@ -2,7 +2,7 @@
 
 . /usr/sbin/xivo-read-config
 
-MONIT_CHECKS=/usr/share/xivo-monitoring/checks
+MONIT_CHECKS=/usr/share/wazo-monitoring/checks
 MONIT_CONF_DIR=/etc/monit/conf.d
 
 activate_check()
@@ -26,7 +26,7 @@ for check in $MONIT_CHECKS/*; do
     service=$(basename $check)
     if [ "$service" = "isc-dhcp-server" ]; then
         if [ "${XIVO_DHCP_ACTIVE}" = "1" ]; then
-            ln -nsf /usr/share/xivo-monitoring/checks/isc-dhcp-server /etc/monit/conf.d/isc-dhcp-server
+            ln -nsf /usr/share/wazo-monitoring/checks/isc-dhcp-server /etc/monit/conf.d/isc-dhcp-server
         else
             rm -f /etc/monit/conf.d/isc-dhcp-server
         fi

@@ -1,11 +1,11 @@
-Source: xivo-monitoring
+Source: wazo-monitoring
 Section: admin
 Priority: optional
 Maintainer: Wazo Maintainers <dev@wazo.community>
 Build-Depends: debhelper (>= 12)
 Standards-Version: 3.9.6
 
-Package: xivo-monitoring
+Package: wazo-monitoring
 Architecture: all
 Pre-Depends: monit, nginx
 Depends: ethtool,
@@ -25,9 +25,9 @@ Depends: ethtool,
          smartmontools,
          systemd,
          xivo-config
-Provides: pf-xivo-monitoring
-Replaces: pf-xivo-monitoring
-Conflicts: munin-plugins-extra, pf-xivo-monitoring
+Provides: xivo-monitoring
+Replaces: xivo-monitoring
+Conflicts: xivo-monitoring
 Description: local services monitoring using Munin
  This package configures Monit to check services on
  the local machine, autodetecting available services.

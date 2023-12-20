@@ -1,3 +1,9 @@
+wazo-monitoring (24.01~20231220.224221) wazo-dev-bullseye; urgency=medium
+
+  * Rename wazo-monitoring
+
+ -- Wazo Maintainers <dev+pkg@wazo.community>  Wed, 20 Dec 2023 17:13:14 -0500
+
 xivo-monitoring (14.02~20140121.224221.bdb5029) xivo-dev; urgency=low
 
   * remove /etc/default/monit update on postinst

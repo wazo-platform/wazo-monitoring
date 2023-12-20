@@ -1,5 +1,5 @@
 #! /bin/sh
-# postinst script for xivo-monitoring
+# postinst script for wazo-monitoring
 #
 # see: dh_installdeb(1)
 
@@ -12,10 +12,10 @@ case "$1" in
         chown -R munin:munin /var/www/munin
 
         if [ -e /etc/xivo/common.conf ]; then
-            xivo-monitoring-update
+            wazo-monitoring-update
         fi
 
-        xivo-monitoring-update-graphics
+        wazo-monitoring-update-graphics
 
     ;;
 
