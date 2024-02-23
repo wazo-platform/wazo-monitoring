@@ -44,12 +44,5 @@ if [ -e $monit_file ]; then
 fi
 cp $monit_file.tmpl $monit_file
 
-emails=$(get_full_email_alerts "monit")
-if [ -n "$emails" ]; then
-    for email in $emails; do
-        echo "set alert $email" >> /etc/monit/monitrc
-    done
-fi
-
 # restart service to take changes into account
 systemctl restart monit > /dev/null
