@@ -1,5 +1,5 @@
 check process asterisk with pidfile /run/asterisk/asterisk.pid
 	group telephony
-	start program = "/usr/bin/wazo-service restart wazo-nomonit" with timeout 90 seconds
+	start program = "/usr/bin/wazo-service restart wazo-nomonit" with timeout 180 seconds
 	stop program = "/usr/bin/wazo-service stop wazo-nomonit"
 	if 5 restarts within 5 cycles then timeout
