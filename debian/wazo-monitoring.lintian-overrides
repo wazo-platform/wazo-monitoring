@@ -1,1 +1,1 @@
-wazo-monitoring: dir-or-file-in-var-www var/www/munin/
+wazo-monitoring: dir-or-file-in-var-www [var/www/munin/]
