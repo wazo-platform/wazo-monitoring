@@ -25,9 +25,6 @@ Depends: ethtool,
          smartmontools,
          systemd,
          xivo-config
-Provides: xivo-monitoring
-Replaces: xivo-monitoring
-Conflicts: xivo-monitoring
 Description: local services monitoring using Munin
  This package configures Monit to check services on
  the local machine, autodetecting available services.
