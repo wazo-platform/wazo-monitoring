@@ -1,4 +1,0 @@
-check process wazo-provd with pidfile /run/wazo-provd/wazo-provd.pid
-	group telephony
-	start program = "/bin/systemctl start wazo-provd.service"
-	stop program = "/bin/systemctl stop wazo-provd.service"
