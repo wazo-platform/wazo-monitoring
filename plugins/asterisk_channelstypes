@@ -45,7 +45,7 @@ if (! eval "require Net::Telnet;")
     $ret = "Net::Telnet not found";
 }
 
-my @CHANNELS = exists $ENV{'channels'} ? split ' ',$ENV{'channels'} : qw(DAHDI IAX2 SIP);
+my @CHANNELS = exists $ENV{'channels'} ? split ' ',$ENV{'channels'} : qw(PJSIP IAX2 SCCP);
 
 if ($ARGV[0] and $ARGV[0] eq "config")
 {
