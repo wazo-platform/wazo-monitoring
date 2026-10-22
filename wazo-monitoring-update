@@ -9,9 +9,6 @@ activate_check()
 {
     local check=$1
 
-    # cleanup broken link
-    find $MONIT_CONF_DIR -type l -xtype l -exec rm {} \;
-
     if [ -e $MONIT_CONF_DIR/$check ] && [ ! -L $MONIT_CONF_DIR/$check ]; then
       rm $MONIT_CONF_DIR/$check
     fi
@@ -21,14 +18,17 @@ activate_check()
     fi
 }
 
+# cleanup broken link
+find $MONIT_CONF_DIR -type l -xtype l -exec rm {} \;
+
 # known services
 for check in $MONIT_CHECKS/*; do
     service=$(basename $check)
     if [ "$service" = "isc-dhcp-server" ]; then
         if [ "${XIVO_DHCP_ACTIVE}" = "1" ]; then
-            ln -nsf /usr/share/wazo-monitoring/checks/isc-dhcp-server /etc/monit/conf.d/isc-dhcp-server
+            ln -nsf $MONIT_CHECKS/isc-dhcp-server $MONIT_CONF_DIR/isc-dhcp-server
         else
-            rm -f /etc/monit/conf.d/isc-dhcp-server
+            rm -f $MONIT_CONF_DIR/isc-dhcp-server
         fi
     else
         activate_check $service
