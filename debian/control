@@ -7,27 +7,15 @@ Standards-Version: 3.9.6
 
 Package: wazo-monitoring
 Architecture: all
-Pre-Depends: monit, nginx
+Pre-Depends: monit
 Depends: ethtool,
          hdparm,
-         libcrypt-ssleay-perl,
-         libcurses-perl,
-         libdate-manip-perl,
-         libnet-ip-perl,
-         libnet-netmask-perl,
          libnet-telnet-perl,
-         libterm-readkey-perl,
-         libwww-perl,
          munin,
          munin-node,
-         nginx,
-         python3,
          smartmontools,
          systemd,
          xivo-config
 Description: local services monitoring using Munin
  This package configures Monit to check services on
  the local machine, autodetecting available services.
- .
- This package also configures apache as a reverse-proxy
- in order to access the monit web interface.
