@@ -210,11 +210,11 @@ fi
 
 # known services
 activate_if_installed asterisk asterisk_channels asterisk_channelstypes asterisk_iaxchannels asterisk_iaxlag asterisk_iaxpeers asterisk_voicemail
-for plugin in asterisk_codecs asterisk_meetme asterisk_meetmeusers asterisk_sipchannels asterisk_sippeers; do
+for plugin in asterisk_codecs asterisk_meetme asterisk_meetmeusers asterisk_sipchannels asterisk_sippeers ntp_states; do
   deactivate_plugin $plugin
 done
 activate_if_installed postfix postfix_mailqueue postfix_mailvolume postfix_mailstats
-activate_if_installed ntp ntp_offset ntp_states
+activate_if_installed ntp ntp_offset
 
 
 # Server templates
